@@ -9,7 +9,7 @@ import CheckAuth from './components/common/check-auth';
 import { ShopLayout } from './components/shop/layout';
 import { AdminDashboard } from './pages/adminPanel/dashboard';
 import { AdminFeatures } from './pages/adminPanel/features';
-import { AdminOrders } from './pages/adminPanel/orders';
+import { AdminOrderPage } from './pages/adminPanel/orders';
 import { AdminProducts } from './pages/adminPanel/products';
 import { AuthSignIn } from './pages/auth/signin';
 import { AuthSignUp } from './pages/auth/signup';
@@ -21,6 +21,7 @@ import { ShopListing } from './pages/shop/listing';
 import UnauthPage from './pages/unauth-page';
 import { checkAuth } from './store/auth-slice';
 import { Skeleton } from './components/ui/skeleton';
+import PaypalReturnPage from './pages/shop/paypal-return';
 
 function App() {
 	const { user, isAuthenticated, isLoading } = useSelector(
@@ -73,7 +74,7 @@ function App() {
 					/>
 					<Route
 						path='orders'
-						element={<AdminOrders />}
+						element={<AdminOrderPage />}
 					/>
 					<Route
 						path='products'
@@ -109,6 +110,10 @@ function App() {
 					<Route
 						path='account'
 						element={<ShopAccount />}
+					/>
+					<Route
+						path='paypal-return'
+						element={<PaypalReturnPage />}
 					/>
 				</Route>
 
