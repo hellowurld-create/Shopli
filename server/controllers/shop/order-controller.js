@@ -114,7 +114,7 @@ const capturePayments = async (req, res) => {
 		order.paymentId = paymentId;
 		order.payerId = payerId;
 
-		const getCartId = order.cartId();
+		const getCartId = order.cartId;
 		await Cart.findByIdAndDelete(getCartId);
 
 		await order.save();
@@ -126,7 +126,7 @@ const capturePayments = async (req, res) => {
 		});
 	} catch (error) {
 		console.log(error);
-		req.status(500).message({
+		res.status(500).json({
 			success: false,
 			message: 'An Error occurred',
 		});

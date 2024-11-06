@@ -7,6 +7,7 @@ import { AdminLayout } from './components/adminPanel/layout';
 import { AuthLayout } from './components/auth/layout';
 import CheckAuth from './components/common/check-auth';
 import { ShopLayout } from './components/shop/layout';
+import { Skeleton } from './components/ui/skeleton';
 import { AdminDashboard } from './pages/adminPanel/dashboard';
 import { AdminFeatures } from './pages/adminPanel/features';
 import { AdminOrderPage } from './pages/adminPanel/orders';
@@ -18,10 +19,10 @@ import { ShopAccount } from './pages/shop/account';
 import { ShopCheckOut } from './pages/shop/checkout';
 import { ShopHome } from './pages/shop/home';
 import { ShopListing } from './pages/shop/listing';
+import PaymentSuccessPage from './pages/shop/payment-success';
+import PaypalReturnPage from './pages/shop/paypal-return';
 import UnauthPage from './pages/unauth-page';
 import { checkAuth } from './store/auth-slice';
-import { Skeleton } from './components/ui/skeleton';
-import PaypalReturnPage from './pages/shop/paypal-return';
 
 function App() {
 	const { user, isAuthenticated, isLoading } = useSelector(
@@ -114,6 +115,10 @@ function App() {
 					<Route
 						path='paypal-return'
 						element={<PaypalReturnPage />}
+					/>
+					<Route
+						path='payment-success'
+						element={<PaymentSuccessPage />}
 					/>
 				</Route>
 
